@@ -3,28 +3,28 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - LanchesMac</title>
+    <title>@ViewData["Title"] - LanchesFF</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark border-bottom box-shadow mb-3" role="navigation">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark border-bottom box-shadow mb-3"> 
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">LanchesMac</a>
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">LanchesFF</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                   
+                        @await Component.InvokeAsync("CarrinhoCompraResumo")
 
-                    @await Component.InvokeAsync("CarrinhoCompraResumo")
+                        <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
 
-                    <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        @await Component.InvokeAsync("CategoriaMenu")
 
-                    <a class="nav-link text-light" asp-area="" asp-controller="Contato" asp-action="Index">Contato</a>
-
-                    <a class="nav-link text-light" asp-area="" asp-controller="Lanche" asp-action="List">Lista de Lanche</a>
+                        <a class="nav-link text-light" asp-area="" asp-controller="Contato" asp-action="Index">Contato</a>
 
                 </div>
             </div>
@@ -37,7 +37,7 @@
     </div>
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2020 - LanchesMac
+            &copy; 2021 - LanchesMac
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
