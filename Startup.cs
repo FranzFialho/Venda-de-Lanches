@@ -59,14 +59,28 @@ namespace LanchesFF
             app.UseStaticFiles();
             app.UseSession();
             app.UseRouting();
-
+            app.UseAuthentication();
             app.UseAuthorization();
 
+
             app.UseEndpoints(endpoints =>
+
             {
+                endpoints.MapControllerRoute("areaRoute", "{area:exists}/{Controller=Admin}/{Action=Index}/{id?}");
+
+                endpoints.MapControllerRoute(
+                    name: "AdminArea",
+                    pattern: "{area:exists}/{controller=Admin}/{action=Index}/{id?}");
+
+                endpoints.MapControllerRoute(
+                   name: "categoriaFiltro",
+                   pattern: "Lanche/{action}/{categoria?}",
+                   defaults: new { controller = "Lanche", action = "List" });
+
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
+
             });
         }
     }
